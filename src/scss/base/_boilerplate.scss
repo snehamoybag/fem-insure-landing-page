@@ -64,9 +64,13 @@ svg {
   }
 }
 
-// General Styling
+/* General Styling */
 body {
-  font-family: var(--ff-primary);
+  font-family: var(--ff-body);
   font-weight: var(--fw-regular);
-  color: var(--clr-neutral-400);
+}
+
+h1, h2, h3 {
+  font-family: var(--ff-heading);
+  font-weight: var(--fw-regular);
 }
