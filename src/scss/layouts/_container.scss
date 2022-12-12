@@ -1,0 +1,5 @@
+.container {
+  --container-inline-padding: 1.75em;
+  padding-inline: var(--container-inline-padding);
+  text-align: center;
+}

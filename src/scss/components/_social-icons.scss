@@ -1,0 +1,27 @@
+.social-icons {
+  display: inline-flex;
+  align-items: center;
+  gap: 1rem;
+  
+  a {
+    color: var(--clr-neutral-400);
+    text-decoration: none;
+    
+    &:hover,
+    &:focus-visible {
+      color: var(--clr-neutral-900);
+    }
+    
+    &:focus-visible {
+      
+      svg {
+        outline: 2px dotted currentColor;
+        outline-offset: 0.25em;
+      }
+    }
+  }
+  
+  svg {
+    fill: currentColor;
+  }
+}

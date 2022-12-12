@@ -67,7 +67,10 @@ svg {
 /* General Styling */
 body {
   font-family: var(--ff-body);
+  font-size: var(--fs-400);
   font-weight: var(--fw-regular);
+  color: var(--clr-neutral-400);
+  line-height: 1.6;
 }
 
 h1, h2, h3 {
