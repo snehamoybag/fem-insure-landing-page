@@ -1,0 +1,10 @@
+.fw {
+  
+  &--regular {
+    font-weight: var(--fw-regular);
+  }
+  
+  &--bold {
+    font-weight: var(--fw-bold);
+  }
+}

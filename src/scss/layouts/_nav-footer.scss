@@ -1,0 +1,21 @@
+.nav-footer {
+  padding-top: 2.5em;
+  border-top: 0.5px solid var(--clr-neutral-400);
+  margin-bottom: 2rem;
+  
+  
+  &__list {
+    font-weight: var(--fw-bold);
+    text-transform: uppercase;
+    gap: 2rem;
+    
+    &-title {
+      font-family: var(--ff-body);
+      margin-bottom: 1.75rem;
+    }
+    
+    &-inner {
+      gap: 0.5rem;
+    }
+  }
+}
