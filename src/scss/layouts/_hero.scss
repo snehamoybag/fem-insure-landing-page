@@ -1,13 +1,49 @@
+@use '../abstracts/breakpoints' as brk;
+
 .hero {
-  --hero-container-inline-padding: unset;
-  --txt-block-padding: 5em;
-  background-color: var(--clr-primary-400);
+  background: var(--clr-primary-400);
   color: var(--clr-neutral-200);
   margin-bottom: 7.5rem;
   
+  @include brk.maxWidth(small) {
+    
+    .container {
+      padding-inline: unset;
+    }
+    
+    &__info {
+      padding-inline: var(--container-inline-padding);
+      padding-block: 5em;
+    }
+  }
+  
+  @include brk.minWidth(small) {
+    --img-pos: 2/3;
+    --info-pos: 1/2;
+    --info-align-self: center;
+    background: linear-gradient( var(--clr-primary-400) 75%, var(--clr-neutral-100) 25% );
+    background-repeat: no-repeat;
+    background-size: cover;
+    
+    .grid--even-columns {
+      gap: 2rem;
+    }
+  }
+  
+  
+  &__img {
+    grid-column: var(--img-pos);
+    
+    * {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+  
   &__info {
-    padding-inline: var(--container-inline-padding);
-    padding-block: var(--txt-block-padding);
+    grid-column: var(--info-pos);
+    align-self: var(--info-align-self);
   }
   
   &__title {
@@ -17,9 +53,5 @@
   &__desc {
     opacity: 0.85;
     margin-bottom: 2rem;
-  }
-  
-  .container {
-    padding-inline: var(--hero-container-inline-padding);
   }
 }

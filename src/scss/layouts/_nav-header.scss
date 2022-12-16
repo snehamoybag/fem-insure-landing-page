@@ -1,3 +1,31 @@
+@use '../abstracts/breakpoints' as brk;
+
 .nav-header {
-  display: none;
+  @include brk.maxWidth(small) {
+    display: none;
+  }
+  
+  &__list {
+    align-items: center;
+    gap: 2rem;
+    
+    /* anchor tag that doesn't have a class */
+    a:not([class]) {
+      color: var(--clr-neutral-400);
+      font-size: var(--fs-300);
+      font-weight: var(--fw-bold);
+      text-decoration: none;
+      text-transform: uppercase;
+      
+      &:hover,
+      &:focus-visible {
+        color: var(--clr-neutral-900);
+      }
+      
+      &:focus-visible {
+        outline: 2px dotted currentColor;
+        outline-offset: 0.25em;
+      }
+    }
+  }
 }

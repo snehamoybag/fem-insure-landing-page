@@ -1,7 +1,20 @@
+@use '../abstracts/breakpoints' as brk;
+
 .grid {
   display: grid;
   
   &--even-columns {
     
+    @include brk.minWidth(small) {
+      grid-auto-flow: column;
+      grid-auto-columns: 1fr;
+    }
+  }
+  
+  &--columns {
+    
+    @include brk.minWidth(small) {
+      grid-auto-flow: column;
+    }
   }
 }

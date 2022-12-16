@@ -1,5 +1,17 @@
+@use '../abstracts/breakpoints' as brk;
+
 .container {
   --container-inline-padding: 1.75em;
-  padding-inline: var(--container-inline-padding);
   text-align: center;
+  padding-inline: var(--container-inline-padding);
+  margin-inline: auto;
+  max-width: 75rem;
+  
+  @include brk.minWidth(xsmall) {
+    --container-inline-padding: 3.5em;
+  }
+  
+  @include brk.minWidth(small) {
+    text-align: left;
+  }
 }
