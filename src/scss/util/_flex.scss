@@ -3,10 +3,16 @@
 .flex {
   display: flex;
   
-  &--space-between {
-    justify-content: space-between;
+  &--wrap {
     flex-wrap: wrap;
-    align-items: center;
   }
   
+  &--space-between {
+    
+    @include brk.minWidth(small) {
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+    }
+  }
 }

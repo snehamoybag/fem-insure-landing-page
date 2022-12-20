@@ -1,13 +1,9 @@
 @use '../abstracts/breakpoints' as brk;
 
 .footer {
-  --extra-flex-direction: column;
+  --content-spacing: 2.5rem;
   background-color: var(--clr-neutral-200);
   padding-block: 5em;
-  
-  @include brk.minWidth(small) {
-    --extra-flex-direction: row;
-  }
   
   a {
     text-decoration: none;
@@ -25,9 +21,18 @@
   }
   
   &__extra {
-    flex-direction: var(--extra-flex-direction);
+     /* default styling for mobile screens */
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
     gap: 2rem;
-    margin-bottom: 2.5rem;
+    padding-bottom: 2.5em;
+    border-bottom: 0.5px solid var(--clr-neutral-400);
+    margin-bottom: var(--content-spacing);
+  }
+  
+  .nav-footer {
+    margin-bottom: var(--content-spacing);
   }
   
   &__attribution {

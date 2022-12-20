@@ -5,13 +5,13 @@
   text-align: center;
   padding-inline: var(--container-inline-padding);
   margin-inline: auto;
-  max-width: 75rem;
-  
-  @include brk.minWidth(xsmall) {
-    --container-inline-padding: 3.5em;
-  }
+  max-width: 73rem;
   
   @include brk.minWidth(small) {
     text-align: left;
+  }
+  
+  @include brk.minWidth(small) {
+    --container-inline-padding: 3.5em;
   }
 }

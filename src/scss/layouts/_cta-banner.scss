@@ -3,12 +3,16 @@
 .cta-banner {
   --content-padding-block: 5em;
   --content-padding-inline: 1em;
+  --content-spacing: 2rem;
   margin-bottom: 7.5rem;
   
   @include brk.minWidth(small) {
     --content-padding-inline: 3em;
-    --title-pos: start;
-    --btn-pos: end;
+  }
+  
+  @include brk.minWidth(medium) {
+    --content-padding-inline: 5.5em;
+    --title-max-width: 55%; // magic number that breaks the line to match the design
   }
   
   &__content {
@@ -16,16 +20,18 @@
     color: var(--clr-neutral-200);
     padding-block: var(--content-padding-block);
     padding-inline: var(--content-padding-inline);
+    /* default styling for mobile screens */
+    justify-content: center;
     align-items: center;
-    justify-items: center;
-    gap: 2rem;
+    flex-direction: column;
+    gap: var(--content-spacing);
   }
   
   &__title {
-    justify-self: var(--title-pos);
+    max-width: var(--title-max-width);
   }
   
   &__btn {
-    justify-self: var(--btn-pos);
+    flex-shrink: 0;
   }
 }

@@ -1,3 +1,5 @@
+@use '../abstracts/breakpoints' as brk;
+
 :root {
   --clr-primary-400: hsl(256, 26%, 20%);
   
@@ -19,4 +21,12 @@
   --fs-600: 1.6rem;
   --fs-400: 0.95rem;
   --fs-300: 0.85rem;
+  
+  @include brk.minWidth(medium) {
+    --fs-900: 4.25rem;
+    --fs-700: 3.45rem;
+    --fs-600: 1.75rem;
+    --fs-400: 1rem;
+    --fs-300: 1rem;
+  }
 }

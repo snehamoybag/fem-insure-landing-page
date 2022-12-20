@@ -1,13 +1,22 @@
+ @use '../../abstracts/breakpoints' as brk;
+
 .fs {
+  --900-line-height: 1;
+  --700-line-height: 1.1;
+  
+ @include brk.minWidth(large) {
+    --900-line-height: 0.9;
+    --700-line-height: 1;
+  }
   
   &--900 {
     font-size: var(--fs-900);
-    line-height: 1.1;
+    line-height: var(--900-line-height);
   }
   
   &--700 {
     font-size: var(--fs-700);
-    line-height: 1.1;
+    line-height: var(--700-line-height);
   }
   
   &--600 {

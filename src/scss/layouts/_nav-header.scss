@@ -1,6 +1,7 @@
 @use '../abstracts/breakpoints' as brk;
 
 .nav-header {
+  
   @include brk.maxWidth(small) {
     display: none;
   }
