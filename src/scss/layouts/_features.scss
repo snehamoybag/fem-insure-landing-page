@@ -1,12 +1,44 @@
  @use '../abstracts/breakpoints' as brk;
 
 .features {
+  --container-padding-top: 2.75em;
+  --main-title-margin-bottom: 5rem;
+  --list-gap: 3.5rem;
   --item-alignment: center;
   --icon-size: 5rem;
-  margin-bottom: 7.5rem;
+  --icon-margin-bottom: 1.75rem;
+  margin-bottom: 8rem;
   
   @include brk.minWidth(small) {
+    --container-padding-top: 4em;
+    --main-title-margin-bottom: 6.25rem;
+    --list-gap: 2.25rem;
     --item-alignment: start;
+    --icon-size: 5.85rem;
+    --icon-margin-bottom: 2rem;
+    margin-bottom: 9rem;
+  }
+  
+  .container {
+    padding-top: var(--container-padding-top);
+    position: relative;
+    
+    &::before {
+      content: '';
+      width: 10rem;
+      position: absolute;
+      border-top: 1px solid var(--clr-primary-300);
+      top: 0;
+      
+      @include brk.maxWidth(small) {
+        left: 50%;
+        transform: translateX(-50%);
+      }
+      
+      @include brk.minWidth(large) {
+        margin-inline: unset;
+      }
+    }
   }
   
   &__title,
@@ -15,11 +47,11 @@
   }
   
   &__title {
-    margin-bottom: 4.5rem;
+    margin-bottom: var(--main-title-margin-bottom);
   }
   
   &__list {
-    gap: 3.5rem;
+    gap: var(--list-gap);
   }
   
   &__info {
@@ -30,11 +62,11 @@
     &-icon {
       width: var(--icon-size);
       object-fit: contain;
-      margin-bottom: 1.5rem;
+      margin-bottom: var(--icon-margin-bottom);
     }
     
     &-title {
-      margin-bottom: 0.625rem;
+      margin-bottom: 0.75rem;
     }
     
     &-desc {

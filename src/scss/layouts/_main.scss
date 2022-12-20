@@ -1,0 +1,9 @@
+@use '../abstracts/breakpoints' as brk;
+
+.main {
+  margin-top: 5rem;
+  
+  @include brk.minWidth(small) {
+    margin-top: 6rem;
+  }
+}

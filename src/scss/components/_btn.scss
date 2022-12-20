@@ -6,6 +6,10 @@
   line-height: 1;
   display: inline-block;
   
+  &:hover {
+    cursor: pointer;
+  }
+  
   &:active {
     box-shadow: none;
     transform: scale(98%);

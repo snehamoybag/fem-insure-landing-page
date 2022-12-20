@@ -2,9 +2,10 @@
 
 .hero {
   --info-padding-block: 5em;
+  --title-margin-bottom: 1rem;
   background: var(--clr-primary-400);
   color: var(--clr-neutral-200);
-  margin-bottom: 7.5rem;
+  margin-bottom: 8rem;
   
   @include brk.maxWidth(small) {
     
@@ -20,7 +21,9 @@
   @include brk.minWidth(small) {
     --img-pos: 2/3;
     --info-pos: 1/2;
-    --info-align-self: center;
+    --title-margin-bottom: 1.5rem;
+    margin-bottom: 9rem;
+    position: relative;
     
     .grid--even-columns {
       gap: 2rem;
@@ -28,11 +31,12 @@
   }
   
   @include brk.minWidth(large) {
-    background: linear-gradient( var(--clr-primary-400) 75%, var(--clr-neutral-100) 20% );
+    --info-padding-block: 4em;
+    background: linear-gradient( var(--clr-primary-400) 80%, transparent 20% );
     background-repeat: no-repeat;
     background-size: cover;
+    padding-top: 7.25em;
   }
-  
   
   &__img {
     grid-column: var(--img-pos);
@@ -46,13 +50,55 @@
   
   &__info {
     grid-column: var(--info-pos);
-    //align-self: var(--info-align-self);
     padding-block: var(--info-padding-block);
-    //outline: 1px solid red;
+    
+    @include brk.maxWidth(small) {
+      position: relative;
+    }
+    
+    &::before {
+    position: absolute;
+    content: url('/images/backgrounds/bg-pattern-intro-left-mobile.svg');
+    top: 0;
+    left: 0;
+    
+    @include brk.minWidth(large) {
+      content: url('/images/backgrounds/bg-pattern-intro-right-desktop.svg');
+      top: -11%;
+      right: 0;
+      left: unset;
+    }
+  }
+  
+    &::after {
+      position: absolute;
+      content: url('/images/backgrounds/bg-pattern-intro-right-mobile.svg');
+      bottom: -45%;
+      right: 0;
+      
+      @include brk.minWidth(large) {
+        content: url('/images/backgrounds/bg-pattern-intro-left-desktop.svg');
+        bottom: -24%;
+        left: 0;
+        right: unset;
+      }
+    }
   }
   
   &__title {
-    margin-bottom: 1rem;
+    margin-bottom: var(--title-margin-bottom);
+    position: relative;
+    
+    &::before {
+      
+      @include brk.minWidth(large) {
+        content: '';
+        position: absolute;
+        top: -4rem;
+        width: 10rem;
+        border-top: 1px solid var(--clr-neutral-200);
+      }
+    }
   }
   
   &__desc {
