@@ -1,0 +1,9 @@
+@use '../abstracts/breakpoints' as brk;
+
+.overflow {
+  &--y-hidden {
+    @include brk.maxWidth(small) {
+      overflow-y: hidden;
+    }
+  }
+}

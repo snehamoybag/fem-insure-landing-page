@@ -1,20 +1,22 @@
  @use '../abstracts/breakpoints' as brk;
 
 .header {
-  --container-height: 5rem;
+  --container-height: 4rem;
   width: 100%;
   background-color: var(--clr-neutral-100);
   position: fixed;
+  z-index: 99;
   top: 0;
-  z-index: 1;
   
   @include brk.minWidth(small) {
     --container-height: 6rem;
-    position: absolute;
+    position: static;
   }
   
   .container {
+    //background-color: var(--clr-neutral-100);
     min-height: var(--container-height);
+    justify-content: space-between;
     align-items: center;
   }
 }

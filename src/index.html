@@ -15,8 +15,12 @@
     <a class="header__logo-container" href="#">
       <img class="header__logo" src="images/logo.svg" alt="Insure Logo">
     </a>
-    <nav class="nav-header" aria-label="Header">
-      <ul class="nav-header__list | flex" role="list">
+    <nav class="nav-header | flex flex--space-between" aria-label="Header">
+      <button class="btn btn__hamburger" id="btn-nav-hamburger" aria-controls="nav-header-list" aria-expanded="false">
+        <span class="sr-only">Menu</span>
+        <span class="btn__hamburger-lines" aria-hidden="true"></span>
+      </button>
+      <ul class="nav-header__list" id="nav-header-list" data-state="closed" role="list">
         <li><a href="#">How we work</a></li>
         <li><a href="#">Blog</a></li>
         <li><a href="#">Account</a></li>

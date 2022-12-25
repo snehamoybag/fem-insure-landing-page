@@ -2,26 +2,85 @@
 
 .nav-header {
   
-  @include brk.maxWidth(small) {
-    display: none;
-  }
-  
   &__list {
+    display: flex;
     align-items: center;
     gap: 2rem;
+    font-size: var(--fs-500);
     
-    /* anchor tag that doesn't have a class */
-    a:not([class]) {
-      color: var(--clr-neutral-400);
-      font-size: var(--fs-300);
-      font-weight: var(--fw-bold);
-      text-decoration: none;
-      text-transform: uppercase;
+    @include brk.maxWidth(small) {
+      position: absolute;
+      width: 100%;
+      height: 95vh; // 100vh makes content cropped by device bottom navigation
+      overflow-y: scroll; // makes nav scrollable
+      -webkit-overflow-scrolling: touch; // mobile safari
+      padding: 2.5em 1.5em;
+      background-color: var(--clr-neutral-900);
+      background-image: url('/images/backgrounds/bg-pattern-mobile-nav.svg');
+      background-repeat: no-repeat;
+      background-position: bottom;
+      background-size: contain;
+      color: var(--clr-neutral-200);
+      top: 4rem;
+      //left: 0;
+      flex-direction: column;
+      gap: 2.25rem;
       
-      &:hover,
-      &:focus-visible {
-        color: var(--clr-neutral-900);
+      li {
+        width: 100%;
       }
+      
+      a {
+        color: var(--clr-neutral-200);
+        font-size: var(--fs-500);
+      }
+      
+      a:not([class]):hover,
+      a:not([class]):focus-visible {
+        color: var(--clr-secondary-400);
+      }
+      
+      // Javascript Functionality
+      &[data-state="opened"] {
+        animation: menuSlideLeft 700ms ease forwards;
+      }
+      
+      &[data-state="closing"] {
+        animation: menuSlideRight 700ms ease forwards;
+      }
+      
+      &[data-state="closed"] {
+        display: none;
+      }
+      
+      .btn__cta--dark {
+        border-color: var(--clr-neutral-200);
+        width: 100%;
+        
+        &:hover {
+          background-color: var(--clr-neutral-200);
+          color: var(--clr-neutral-900);
+        }
+      }
+    }
+    
+    @include brk.minWidth(small) {
+      /* anchor tag that doesn't have a class */
+      a:not([class]) {
+        color: var(--clr-neutral-400);
+        font-size: var(--fs-300);
+        
+        &:hover,
+        &:focus-visible {
+          color: var(--clr-neutral-900);
+        }
+      }
+    }
+    
+    a {
+      font-weight: var(--fw-bold);
+      text-transform: uppercase;
+      text-decoration: none;
       
       &:focus-visible {
         outline: 2px dotted currentColor;
@@ -29,4 +88,27 @@
       }
     }
   }
+  
+  .btn__hamburger {
+    
+    @include brk.minWidth(small) {
+      display: none;
+    }
+  }
+}
+
+
+/* Animations */
+@keyframes menuSlideLeft {
+  0% {left: 100%}
+  100% {left: 0;}
+}
+
+@keyframes menuSlideRight {
+  0% {left: 0;}
+  100% {left: 100%;}
+}
+
+.relative {
+  position: relative;
 }
